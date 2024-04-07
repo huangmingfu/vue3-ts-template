@@ -1,6 +1,6 @@
 {
   "name": "vue3-ts-template",
-  "description": "一套基于vue3、ts、vite5的项目模板，封装了axios，vue-router，配置了vite.config.js等。",
+  "description": "一套基于vue3、ts、vite5的项目模板，帮助快速开发",
   "private": true,
   "version": "1.0.0",
   "type": "module",
