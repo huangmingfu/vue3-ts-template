@@ -17,4 +17,6 @@
 pnpm i
 
 pnpm run dev
+
+pnpm update //升级依赖包
 ```
