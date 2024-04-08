@@ -16,7 +16,11 @@
   // md文件不自动格式化
   "[markdown]": {
     "editor.wordWrap": "on",
-    "editor.quickSuggestions": false,
+    "editor.quickSuggestions": {
+      "comments": "off",
+      "strings": "off",
+      "other": "off"
+    },
     "editor.formatOnSave": false
   }
 }
