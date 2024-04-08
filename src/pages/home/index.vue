@@ -6,4 +6,11 @@
 
 <script setup lang="ts"></script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+h1 {
+  font-size: 50px;
+  font-weight: bold;
+  color: $color-test;
+  text-align: center;
+}
+</style>
