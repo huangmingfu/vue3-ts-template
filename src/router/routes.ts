@@ -17,7 +17,7 @@ const routes: Array<RouteRecordRaw> = [
       title: '首页',
       keepAlive: true //是否缓存路由
     },
-    component: () => import('@/pages/home/index.vue')
+    component: () => import('@/pages/Home/index.vue')
   },
   {
     name: 'NoFind',

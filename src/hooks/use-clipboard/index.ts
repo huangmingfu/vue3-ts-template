@@ -1,6 +1,6 @@
 import { ref } from 'vue'
 
-const useClipboard = () => {
+export function useClipboard() {
   const copied = ref(false)
   const text = ref('')
   const isSupported = ref(false)
@@ -43,5 +43,3 @@ const useClipboard = () => {
 
   return { copy, text, copied, isSupported }
 }
-
-export { useClipboard }
