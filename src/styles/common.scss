@@ -1,3 +1,4 @@
+/** <Transition name="fade"> */
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.5s ease;
@@ -6,4 +7,16 @@
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
+}
+
+/** <TransitionGroup name="list"> */
+.list-enter-active,
+.list-leave-active {
+  transition: all 0.5s ease;
+}
+
+.list-enter-from,
+.list-leave-to {
+  opacity: 0;
+  transform: translateX(30px);
 }
