@@ -1,16 +1,30 @@
 <template>
-  <div>
-    <h1>Home</h1>
+  <div :class="prefixCls">
+    <h1 :class="`${prefixCls}__title`">
+      Home
+      <span :class="`${prefixCls}__title--span`">Home2</span>
+    </h1>
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useDesign } from '@/hooks'
+const { prefixCls } = useDesign('home')
+// const { prefixCls } = useDesign('home','cmp')
+</script>
 
 <style scoped lang="scss">
-h1 {
-  font-size: 50px;
-  font-weight: bold;
-  color: $color-test;
-  text-align: center;
+$prefix-cls: '#{$namespace}-#{$pg}-home';
+
+.#{ $prefix-cls } {
+  &__title {
+    font-size: 50px;
+    font-weight: bold;
+    text-align: center;
+
+    &--span {
+      color: $color-test;
+    }
+  }
 }
 </style>
