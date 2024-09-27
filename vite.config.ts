@@ -42,7 +42,7 @@ export default defineConfig(({ mode }) => {
         [env.VITE_APP_BASE_API]: {
           target: env.VITE_APP_SERVICE_API,
           changeOrigin: true,
-          rewrite: (path) => path.replace(new RegExp('^' + env.VITE_APP_BASE_API), '')
+          rewrite: (path: string) => path.replace(new RegExp('^' + env.VITE_APP_BASE_API), '')
         }
       }
     },
