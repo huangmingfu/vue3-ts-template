@@ -26,7 +26,7 @@ module.exports = {
     'selector-pseudo-class-no-unknown': [
       true,
       {
-        ignorePseudoClasses: ['global', 'v-deep', 'deep','export']
+        ignorePseudoClasses: ['global', 'v-deep', 'deep', 'export']
       }
     ],
     // Specify the alphabetical order of the attributes in the declaration block
