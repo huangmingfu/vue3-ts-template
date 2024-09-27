@@ -1,13 +1,12 @@
 import variables from '@/styles/variables.module.scss'
 
-/**
- * @param scope
- * @param type 'pg'页面、'cmp'组件、'pub'公共组件
- */
-export function useDesign(scope: string, type: 'pg' | 'cmp' | 'pub' = 'pg') {
+export function useDesign(scope: string) {
   const scssVariables = variables
+  // 'pg'页面、'cmp'组件、'pub'公共组件
+  const prefixCls = `${scssVariables.namespace}-${scope}`
 
   return {
-    prefixCls: `${scssVariables.namespace}-${type}-${scope}`
+    prefixCls,
+    createClass: (content: string) => prefixCls + content
   }
 }
