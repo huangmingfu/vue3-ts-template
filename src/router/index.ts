@@ -19,3 +19,25 @@ router.beforeEach((to, _from, next) => {
 })
 
 export default router
+
+/**
+// 批量导入路由
+const modules = import.meta.glob('./modules/*.js', { eager: true })
+console.log(modules)
+const patchRouters = Object.keys(modules).map(key => modules[key].default).flat()
+console.log(patchRouters)
+
+
+const routes = [
+  {
+    path: '/',
+    redirect: '/home',
+  },
+  ...patchRouters,
+  {
+    path: '/:pathMatch(.*)*',
+    redirect: '/404',
+  },
+]
+
+ */
