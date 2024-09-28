@@ -54,7 +54,17 @@ export default defineConfig(({ mode }) => {
     build: {
       target: 'es2015',
       outDir: env.VITE_OUT_DIR || 'dist',
-      sourcemap: env.VITE_SOURCEMAP === 'true'
+      sourcemap: env.VITE_SOURCEMAP === 'true',
+      rollupOptions: {
+        output: {
+          manualChunks(id) {
+            // 第三方库打包成一个.js中，页面加载时可缓存加载
+            if (id.includes('node_modules')) {
+              return 'vendor'
+            }
+          }
+        }
+      }
     }
   }
 })
