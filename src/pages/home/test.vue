@@ -50,8 +50,8 @@ const obj = {
 const handleClick = () => {
   showMessage.value++
 }
-const props = defineProps<{ test2: string; test3?: number }>()
-console.log(`props -->`, props)
+const { test2 = 'hhhhh' } = defineProps<{ test2: string; test3?: number }>()
+console.log(`test2 -->`, test2)
 
 defineExpose({
   showMessage
