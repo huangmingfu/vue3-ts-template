@@ -20,7 +20,7 @@
     "lint:all": "pnpm run lint:eslint && pnpm run lint:format && pnpm run lint:style && pnpm run lint:lint-staged",
     "prepare": "husky install",
     "preinstall": "npx only-allow pnpm",
-    "push:gitee": "git add . && git commit -m \"feat: gitee自动提交\" && git push -u origin master",
+    "push:gitee": "git add . && git commit -m \"feat: update\" && git push -u origin master",
     "reinstall": "rm -rf node_modules && pnpm i"
   },
   "dependencies": {
