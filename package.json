@@ -21,21 +21,21 @@
     "prepare": "husky install",
     "preinstall": "npx only-allow pnpm",
     "push:gitee": "git add . && git commit -m \"feat: update\" && git push -u origin master",
-    "reinstall": "rm -rf node_modules && pnpm i"
+    "reinstall": "rimraf node_modules && pnpm i"
   },
   "dependencies": {
     "axios": "^1.7.7",
     "mitt": "^3.0.1",
-    "vue": "^3.5.10",
+    "vue": "^3.5.12",
     "vue-router": "^4.4.5"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.5.0",
     "@commitlint/config-conventional": "^19.5.0",
-    "@types/node": "^20.16.10",
+    "@types/node": "^20.16.11",
     "@vitejs/plugin-vue": "^5.1.4",
     "@vitejs/plugin-vue-jsx": "^3.1.0",
-    "eslint": "^9.11.1",
+    "eslint": "^9.12.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
     "husky": "^9.1.6",
@@ -44,8 +44,9 @@
     "postcss-html": "^1.7.0",
     "postcss-scss": "^4.0.9",
     "prettier": "^3.3.3",
-    "sass": "^1.79.4",
-    "stylelint": "^16.9.0",
+    "rimraf": "^6.0.1",
+    "sass": "^1.79.5",
+    "stylelint": "^16.10.0",
     "stylelint-config-html": "^1.1.0",
     "stylelint-config-recess-order": "^5.1.1",
     "stylelint-config-recommended-scss": "^14.1.0",
@@ -53,8 +54,8 @@
     "stylelint-config-standard": "^36.0.1",
     "stylelint-config-standard-scss": "^13.1.0",
     "stylelint-scss": "^6.7.0",
-    "typescript": "^5.6.2",
-    "vite": "^5.4.8",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.9",
     "vite-plugin-html": "^3.2.2",
     "vue-tsc": "^2.1.6"
   },

@@ -1,0 +1,4 @@
+enum ETest {
+  a,
+  b
+}
