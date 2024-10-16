@@ -2,24 +2,13 @@ import { defineConfig, loadEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import path from 'node:path'
 import vueJsx from '@vitejs/plugin-vue-jsx'
-import { createHtmlPlugin } from 'vite-plugin-html'
+import process from 'node:process'
 
 export default defineConfig(({ mode }) => {
   // 获取`.env`环境配置文件
   const env = loadEnv(mode, process.cwd())
   return {
-    plugins: [
-      vue(),
-      vueJsx(),
-      //替换网站标题
-      createHtmlPlugin({
-        inject: {
-          data: {
-            title: env.VITE_APP_TITLE
-          }
-        }
-      })
-    ],
+    plugins: [vue(), vueJsx()],
     resolve: {
       alias: {
         '@': path.resolve(__dirname, 'src')
