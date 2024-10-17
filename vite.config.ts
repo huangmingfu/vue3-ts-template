@@ -18,7 +18,6 @@ export default defineConfig(({ mode }) => {
       preprocessorOptions: {
         scss: {
           javascriptEnabled: true,
-          // additionalData: '@import "./src/styles/var.scss";' // 引入全局scss变量
           additionalData: `@use "@/styles/global.scss" as *;` // 引入全局scss变量、方法等
         }
       }
