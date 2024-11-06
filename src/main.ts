@@ -1,10 +1,20 @@
-import { createApp } from 'vue'
-import router from '@/router/index' //引入路由
-import '@/styles/common.scss' //引入全局样式
-import { setupGlobCom } from '@/components' // 引入全局组件
-import App from './App.vue'
+import { createApp } from 'vue';
+import { setupRouter } from '@/router'; //引入路由
+import '@/styles/common.scss'; //引入全局样式
+import { setupGlobCom } from '@/components'; // 引入全局组件
+import App from './App.vue';
+import { setupStore } from './store';
 
-const app = createApp(App)
-app.use(router)
-app.use(setupGlobCom) // setupGlobCom(app);
-app.mount('#app')
+const setupAll = () => {
+  const app = createApp(App);
+
+  setupRouter(app);
+
+  setupGlobCom(app);
+
+  setupStore(app);
+
+  app.mount('#app');
+};
+
+setupAll();

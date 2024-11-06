@@ -1,17 +1,37 @@
 {
   "name": "vue3-ts-template",
   "description": "一套基于vue3、ts、vite5的项目模板，帮助快速开发",
-  "private": true,
   "version": "1.0.0",
   "type": "module",
+  "packageManager": "pnpm@9.12.3",
+  "author": {
+    "name": "huangmingfu",
+    "email": "212149997@qq.com",
+    "url": "https://huangmingfu.github.io/my-blog"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/huangmingfu/react-ts-template",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/huangmingfu/react-ts-template"
+  },
+  "bugs": "https://github.com/huangmingfu/react-ts-template/issues",
+  "keywords": [
+    "react18-ts-template",
+    "react18",
+    "template",
+    "vite5"
+  ],
   "scripts": {
-    "dev": "vite",
+    "dev": "vite -mode dev",
+    "dev:test": "vite -mode test",
+    "dev:pro": "vite -mode pro",
     "build:dev": "pnpm vite build --mode dev",
     "build:test": "pnpm vite build --mode test",
     "build:pro": "pnpm vite build --mode pro",
-    "serve:dev": "pnpm vite preview --mode dev",
-    "serve:test": "pnpm vite preview --mode test",
-    "serve:pro": "pnpm vite preview --mode pro",
+    "preview:dev": "pnpm vite preview --mode dev",
+    "preview:test": "pnpm vite preview --mode test",
+    "preview:pro": "pnpm vite preview --mode pro",
     "ts:check": "pnpm vue-tsc --noEmit --skipLibCheck",
     "lint:eslint": "eslint --fix --ext .js,.ts,.vue ./src",
     "lint:format": "prettier --write --loglevel warn \"src/**/*.{js,ts,json,tsx,css,less,vue,html,md}\"",
@@ -20,12 +40,16 @@
     "lint:all": "pnpm run lint:eslint && pnpm run lint:format && pnpm run lint:style",
     "prepare": "husky install",
     "preinstall": "npx only-allow pnpm",
-    "push": "git add . && git commit -m \"feat: update\" && git push -u origin master",
-    "reinstall": "rimraf node_modules && pnpm i"
+    "push": "sh scripts/push.sh",
+    "clean": "rm -rf node_modules dist dist-*"
   },
   "dependencies": {
+    "@vueuse/core": "^11.2.0",
     "axios": "^1.7.7",
+    "dayjs": "^1.11.13",
     "mitt": "^3.0.1",
+    "pinia": "^2.2.6",
+    "pinia-plugin-persistedstate": "^4.1.2",
     "vue": "^3.5.12",
     "vue-router": "^4.4.5"
   },
@@ -61,6 +85,5 @@
   "engines": {
     "node": ">=18.12.0",
     "pnpm": ">=9"
-  },
-  "packageManager": "pnpm@9.0.6"
+  }
 }

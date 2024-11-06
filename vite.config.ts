@@ -1,12 +1,12 @@
-import { defineConfig, loadEnv } from 'vite'
-import vue from '@vitejs/plugin-vue'
-import path from 'node:path'
-import vueJsx from '@vitejs/plugin-vue-jsx'
-import process from 'node:process'
+import { defineConfig, loadEnv } from 'vite';
+import vue from '@vitejs/plugin-vue';
+import path from 'node:path';
+import vueJsx from '@vitejs/plugin-vue-jsx';
+import process from 'node:process';
 
 export default defineConfig(({ mode }) => {
   // 获取`.env`环境配置文件
-  const env = loadEnv(mode, process.cwd())
+  const env = loadEnv(mode, process.cwd());
   return {
     plugins: [vue(), vueJsx()],
     resolve: {
@@ -49,11 +49,14 @@ export default defineConfig(({ mode }) => {
           manualChunks(id) {
             // 第三方库打包成一个.js中，页面加载时可缓存加载
             if (id.includes('node_modules')) {
-              return 'vendor'
+              return 'vendor';
             }
           }
         }
       }
+    },
+    optimizeDeps: {
+      include: ['vue', 'vue-router', '@vueuse/core', 'axios', 'dayjs', 'pinia', 'mitt']
     }
-  }
-})
+  };
+});

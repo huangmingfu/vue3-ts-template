@@ -1,5 +1,6 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import routes from './routes'
+import { createRouter, createWebHistory } from 'vue-router';
+import routes from './routes';
+import { App } from 'vue';
 
 const router = createRouter({
   //路由模式
@@ -8,17 +9,21 @@ const router = createRouter({
   routes,
   //路由导航让页面滚动到顶部
   scrollBehavior: () => ({ left: 0, top: 0 })
-})
+});
 
 //前置守卫
 router.beforeEach((to, _from, next) => {
   //动态设置网页左上角的标题
-  document.title = to.meta.title || import.meta.env.VITE_APP_TITLE
+  document.title = to.meta.title || import.meta.env.VITE_APP_TITLE;
   //...判断登录token逻辑
-  next()
-})
+  next();
+});
 
-export default router
+export const setupRouter = (app: App<Element>) => {
+  app.use(router);
+};
+
+export default router;
 
 /**
 // 批量导入路由
