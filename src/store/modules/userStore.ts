@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia';
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 
 type TUserInfo = {
   name: string;
@@ -7,9 +7,11 @@ type TUserInfo = {
   token: string;
 };
 
-function storeSetup() {
+function setupStore() {
+  /** state */
   const userInfo = ref<TUserInfo>();
 
+  /** actions */
   const setUserInfo = (info: TUserInfo) => {
     userInfo.value = info;
   };
@@ -17,6 +19,10 @@ function storeSetup() {
     userInfo.value = undefined;
   };
 
-  return { userInfo, clearUserInfo, setUserInfo };
+  /** getters */
+  const isLogin = computed(() => !!userInfo.value);
+
+  return { userInfo, clearUserInfo, setUserInfo, isLogin };
 }
-export const useUserStore = defineStore('app-user', storeSetup, { persist: true });
+
+export const useUserStore = defineStore('app-user', setupStore, { persist: true });
