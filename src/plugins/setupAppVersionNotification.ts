@@ -48,3 +48,47 @@ async function getHtmlBuildTime() {
 
   return buildTime;
 }
+
+/**
+ 第三种方式，api接口请求，version版本判断：
+
+interface VersionInfo {
+version: string
+forceUpdate: boolean
+updateContent: string
+}
+
+const currentVersion = import.meta.env.VITE_APP_VERSION
+const checkInterval = 1000 * 60 * 60 // 每小时检查一次
+
+export function setupVersionCheck() {
+  const hasNewVersion = ref(false)
+
+  async function checkVersion() {
+    try {
+      const res = await axios.get<VersionInfo>('/api/version')
+      if (res.data.version !== currentVersion) {
+        hasNewVersion.value = true
+        if (res.data.forceUpdate) {
+          // 强制更新逻辑
+          window.location.reload()
+        }
+      }
+    } catch (error) {
+      console.error('Version check failed:', error)
+    }
+  }
+
+  // 初始检查
+  checkVersion()
+
+  // 定时检查
+  if (import.meta.env.VITE_APP_AUTO_UPDATE === 'true') {
+    setInterval(checkVersion, checkInterval)
+  }
+
+  return {
+    hasNewVersion
+  }
+}
+ */
