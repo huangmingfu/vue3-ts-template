@@ -1,58 +1,40 @@
-// import { h } from 'vue';
+// 版本检测提示的方式: 'visibility' 页面可见性变化 | 'interval' 定时检查
+const CHECK_TYPE: 'visibility' | 'interval' = 'interval';
 
 export function setupAppVersionNotification() {
   const canAutoUpdateApp = import.meta.env.VITE_APP_AUTO_UPDATE === 'true';
-
   if (!canAutoUpdateApp) return;
 
   let isShow = false;
 
-  document.addEventListener('visibilitychange', async () => {
-    const preConditions = [!isShow, document.visibilityState === 'visible']; // , import.meta.env.VITE_NODE_ENV === 'production'
+  // 抽取公共的版本检查逻辑
+  async function checkVersion() {
+    const preConditions = [!isShow, import.meta.env.VITE_NODE_ENV === 'production'];
 
     if (!preConditions.every(Boolean)) return;
 
     const buildTime = await getHtmlBuildTime();
-
-    if (buildTime === BUILD_TIME) {
-      return;
-    }
+    if (buildTime === BUILD_TIME) return;
 
     isShow = true;
+    // 或者使用ui库的组件，然后用h函数渲染
+    if (confirm('检测到新版本,请刷新页面获取最新内容')) {
+      location.reload();
+    }
+  }
 
-    // const key = `open${Date.now()}`;
-
-    // window.$notification?.open({
-    //   message: $t('system.updateTitle'),
-    //   description: $t('system.updateContent'),
-    //   btn() {
-    //     return h('div', { style: { display: 'flex', justifyContent: 'end', gap: '12px', width: '325px' } }, [
-    //       h(
-    //         Button,
-    //         {
-    //           onClick() {
-    //             window.$notification?.destroy(key);
-    //           }
-    //         },
-    //         () => $t('system.updateCancel')
-    //       ),
-    //       h(
-    //         Button,
-    //         {
-    //           type: 'primary',
-    //           onClick() {
-    //             location.reload();
-    //           }
-    //         },
-    //         () => $t('system.updateConfirm')
-    //       )
-    //     ]);
-    //   },
-    //   onClose() {
-    //     isShow = false;
-    //   }
-    // });
-  });
+  if (CHECK_TYPE === 'visibility') {
+    // 监听页面可见性变化，如果一直停留在当前页面，则不会触发版本检测提示
+    document.addEventListener('visibilitychange', async () => {
+      if (document.visibilityState === 'visible') {
+        await checkVersion();
+      }
+    });
+  } else {
+    // 定时检查，轮训
+    const CHECK_INTERVAL = 5 * 60 * 1000; // 每5分钟检查一次，可自行修改
+    setInterval(checkVersion, CHECK_INTERVAL);
+  }
 }
 
 async function getHtmlBuildTime() {

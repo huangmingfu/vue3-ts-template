@@ -12,7 +12,6 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd());
   // 获取构建时间
   const buildTime = getBuildTime();
-  console.log(`buildTime -->`, buildTime);
   return {
     base: env.VITE_BASE_PATH,
     define: {

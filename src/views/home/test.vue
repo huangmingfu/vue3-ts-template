@@ -63,7 +63,7 @@ const slots = defineSlots();
 defineOptions({
   name: 'Test'
 });
-// @ts-ignore
+
 // const emits = defineEmits<{
 //   (event: 'update:value', value: number): void
 //   (event: 'ok', type?: 'add'): void

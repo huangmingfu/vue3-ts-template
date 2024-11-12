@@ -1,7 +1,7 @@
 <template>
   <div :class="prefixCls">
     <h1 :class="`${prefixCls}__title`">
-      Home
+      Home-test
       <span :class="`${prefixCls}__title--span`">Home2</span>
       <a :class="createClass('__title--a')">Home3</a>
     </h1>
@@ -17,8 +17,6 @@ const { prefixCls, createClass } = useDesign('pg-home');
 $prefix-cls: '#{$namespace}-pg-home';
 
 .#{ $prefix-cls } {
-  display: none;
-
   &__title {
     font-size: 50px;
     font-weight: bold;
