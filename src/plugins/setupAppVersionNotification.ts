@@ -1,5 +1,5 @@
 // 版本检测提示的方式: 'visibility' 页面可见性变化 | 'interval' 定时检查
-const CHECK_TYPE: 'visibility' | 'interval' = 'interval';
+const CHECK_TYPE: 'visibility' | 'interval' = 'visibility';
 
 export function setupAppVersionNotification() {
   const canAutoUpdateApp = import.meta.env.VITE_APP_AUTO_UPDATE === 'true';
