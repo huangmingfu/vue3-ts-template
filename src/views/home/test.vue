@@ -31,41 +31,41 @@
 <script setup lang="ts">
 // 查看vue编译结果
 // https://play.vuejs.org/#eNp9kU1LAzEQhv9KnMtWqF1ET2VbUClYDyq14CWXsp3dpmaTkI9aWPa/O8naD0F6y8z7zMz7khYejBntAsIYCldaYTxz6IOZciUao61nLbNYDYPDJTZGrjwusGIdq6xuWEaTGVdclVo5zxpXs0nEB9kzSqnZp7ZyfZVdnxAS58T8XTfIhDKRKvLeA12nwv8SVDFWbG6nbZtOdF2RU5W6NBg82900eo1ywoF0DvEKvUnjkBNX5GerYAjekZlK1KOt04qSt3EVh1I3Rki0b8YLMsthzJIStRXF+X5JPW8DDg/9coPl1z/9rdvHHod3iw7tDjkcNb+yNfpenn284p7eR5GCBEn0BXGBTssQPfbYY1Brsn3GJbfz9H9C1Us323tU7hAqGo1kl3gO9IlPF6Kf7N6N7tMcVx10P3Z3vi4=
-import { ref } from 'vue'
+import { ref } from 'vue';
 
 // 数据
-const showMessage = ref(1)
-const items = ['Item 1', 'Item 2', 'Item 3']
-const htmlContent = ref('<strong>这是HTML内容</strong>')
-const inputValue = ref('')
-const checkboxValue = ref('')
-const initialText = '初始文本'
+const showMessage = ref(1);
+const items = ['Item 1', 'Item 2', 'Item 3'];
+const htmlContent = ref('<strong>这是HTML内容</strong>');
+const inputValue = ref('');
+const checkboxValue = ref('');
+const initialText = '初始文本';
 const obj = {
   a: '1',
   b: '12',
   c: '123'
-}
+};
 
 // 方法
 const handleClick = () => {
-  showMessage.value++
-}
-const { test2 = 'hhhhh' } = defineProps<{ test2: string; test3?: number }>()
-console.log(`test2 -->`, test2)
+  showMessage.value++;
+};
+const { test2 = 'hhhhh' } = defineProps<{ test2: string; test3?: number }>();
+console.log(`test2 -->`, test2);
 
 defineExpose({
   showMessage
-})
+});
 // @ts-ignore
-const mod = defineModel('value', { type: String, default: 'hello' })
+const mod = defineModel('value', { type: String, default: 'hello' });
 // @ts-ignore
-const slots = defineSlots()
+const slots = defineSlots();
 defineOptions({
   name: 'Test'
-})
+});
 // @ts-ignore
-const emits = defineEmits<{
-  (event: 'update:value', value: number): void
-  (event: 'ok', type?: 'add'): void
-}>()
+// const emits = defineEmits<{
+//   (event: 'update:value', value: number): void
+//   (event: 'ok', type?: 'add'): void
+// }>()
 </script>

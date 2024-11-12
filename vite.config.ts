@@ -3,22 +3,32 @@ import vue from '@vitejs/plugin-vue';
 import path from 'node:path';
 import vueJsx from '@vitejs/plugin-vue-jsx';
 import process from 'node:process';
+import { getBuildTime } from './build/utils/time';
+import { fileURLToPath } from 'node:url';
+import { setupHtmlPlugin } from './build/plugins/html';
 
 export default defineConfig(({ mode }) => {
   // 获取`.env`环境配置文件
   const env = loadEnv(mode, process.cwd());
+  // 获取构建时间
+  const buildTime = getBuildTime();
+  console.log(`buildTime -->`, buildTime);
   return {
-    plugins: [vue(), vueJsx()],
+    base: env.VITE_BASE_PATH,
+    define: {
+      BUILD_TIME: JSON.stringify(buildTime)
+    },
+    plugins: [vue(), vueJsx(), setupHtmlPlugin(buildTime)],
     resolve: {
       alias: {
-        '@': path.resolve(__dirname, 'src')
+        '@': path.resolve(fileURLToPath(new URL('.', import.meta.url)), 'src')
       }
     },
     css: {
       preprocessorOptions: {
         scss: {
           javascriptEnabled: true,
-          additionalData: `@use "@/styles/global.scss" as *;` // 引入全局scss变量、方法等
+          additionalData: `@use "@/styles/scss/index.scss" as *;` // 引入全局scss变量、方法等
         }
       }
     },

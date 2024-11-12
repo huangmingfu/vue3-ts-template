@@ -9,14 +9,16 @@
 </template>
 
 <script setup lang="ts">
-import { useDesign } from '@/hooks'
-const { prefixCls, createClass } = useDesign('pg-home')
+import { useDesign } from '@/hooks';
+const { prefixCls, createClass } = useDesign('pg-home');
 </script>
 
 <style scoped lang="scss">
 $prefix-cls: '#{$namespace}-pg-home';
 
 .#{ $prefix-cls } {
+  display: none;
+
   &__title {
     font-size: 50px;
     font-weight: bold;
