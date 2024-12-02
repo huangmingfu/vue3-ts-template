@@ -5,16 +5,7 @@ VITE_NODE_ENV = production
 VITE_APP_BASE_API = '/pro-api'
 
 # 后端服务地址
-VITE_APP_SERVICE_API = 'http://localhost:8888'
-
-# 是否删除debugger
-VITE_DROP_DEBUGGER = true
-
-# 是否删除console.log
-VITE_DROP_CONSOLE = true
-
-# 是否sourcemap
-VITE_SOURCEMAP = false
+VITE_SERVER_URL = 'http://localhost:8888'
 
 # 打包路径
 VITE_BASE_PATH = ./

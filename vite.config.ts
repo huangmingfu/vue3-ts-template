@@ -38,21 +38,27 @@ export default defineConfig(({ mode }) => {
       port: Number(env.VITE_APP_PORT), //端口号
       proxy: {
         [env.VITE_APP_BASE_API]: {
-          target: env.VITE_APP_SERVICE_API,
+          target: env.VITE_SERVER_URL,
           changeOrigin: true,
           rewrite: (path: string) => path.replace(new RegExp('^' + env.VITE_APP_BASE_API), '')
         }
       }
     },
     //打包配置
-    esbuild: {
-      pure: env.VITE_DROP_CONSOLE === 'true' ? ['console.log'] : undefined,
-      drop: env.VITE_DROP_DEBUGGER === 'true' ? ['debugger'] : undefined
-    },
+    esbuild:
+      env.VITE_NODE_ENV === 'development'
+        ? undefined
+        : {
+            /** 打包时移除 console.log */
+            pure: ['console.log'],
+            /** 打包时移除 debugger */
+            drop: ['debugger'],
+            /** 打包时移除所有注释 */
+            legalComments: 'none'
+          },
     build: {
       target: 'es2015',
       outDir: env.VITE_OUT_DIR || 'dist',
-      sourcemap: env.VITE_SOURCEMAP === 'true',
       rollupOptions: {
         output: {
           manualChunks(id) {
