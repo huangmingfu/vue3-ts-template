@@ -33,7 +33,6 @@
     "preview:dev": "pnpm vite preview --mode dev",
     "preview:test": "pnpm vite preview --mode test",
     "preview:pro": "pnpm vite preview --mode pro",
-    "ts:check": "pnpm vue-tsc --noEmit --skipLibCheck",
     "lint:eslint": "eslint --fix --ext .js,.ts,.vue ./src",
     "lint:format": "prettier --write --loglevel warn \"src/**/*.{js,ts,json,tsx,css,less,vue,html,md}\"",
     "lint:style": "stylelint --fix \"**/*.{vue,less,postcss,css,scss}\" --cache --cache-location node_modules/.cache/stylelint/",
@@ -81,8 +80,7 @@
     "stylelint-config-standard-scss": "^14.0.0",
     "stylelint-scss": "^6.10.0",
     "typescript": "^5.7.2",
-    "vite": "^6.0.2",
-    "vue-tsc": "^2.1.10"
+    "vite": "^6.0.2"
   },
   "engines": {
     "node": ">=20",
