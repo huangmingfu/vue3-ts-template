@@ -7,6 +7,6 @@ interface RouteMetaCustom extends Record<string | number | symbol, unknown> {
 
 declare module 'vue-router' {
   interface RouteMeta extends RouteMetaCustom {
-    required: boolean;
+    required?: boolean;
   }
 }
