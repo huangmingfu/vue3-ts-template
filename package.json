@@ -87,7 +87,7 @@
     "@trivago/prettier-plugin-sort-imports": "^4.3.0"
   },
   "engines": {
-    "node": ">=20",
+    "node": "^18.0.0 || ^20.0.0 || >=22.0.0",
     "pnpm": ">=9"
   },
   "volta": {
