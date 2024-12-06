@@ -1,4 +1,4 @@
-import { RouteRecordRaw } from 'vue-router'
+import { RouteRecordRaw } from 'vue-router';
 
 //  meta含义
 //  title   ------------------> 标题
@@ -24,5 +24,5 @@ const routes: Array<RouteRecordRaw> = [
     path: '/:pathMatch(.*)*',
     component: () => import('@/components/Error/404.vue')
   }
-]
-export default routes
+];
+export default routes;

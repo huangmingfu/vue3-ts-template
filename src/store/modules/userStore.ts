@@ -1,5 +1,6 @@
-import { defineStore } from 'pinia';
 import { computed, ref } from 'vue';
+
+import { defineStore } from 'pinia';
 
 type TUserInfo = {
   name: string;

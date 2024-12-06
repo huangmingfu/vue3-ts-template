@@ -1,4 +1,5 @@
 import type { App } from 'vue';
+
 // import { Icon } from './Icon'
 
 /* 挂载全局组件 */

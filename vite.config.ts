@@ -1,11 +1,12 @@
-import { defineConfig, loadEnv } from 'vite';
 import vue from '@vitejs/plugin-vue';
-import path from 'node:path';
 import vueJsx from '@vitejs/plugin-vue-jsx';
+import path from 'node:path';
 import process from 'node:process';
-import { getBuildTime } from './build/utils/time';
 import { fileURLToPath } from 'node:url';
+import { defineConfig, loadEnv } from 'vite';
+
 import { setupHtmlPlugin } from './build/plugins/html';
+import { getBuildTime } from './build/utils/time';
 
 export default defineConfig(({ mode }) => {
   // 获取`.env`环境配置文件

@@ -1,4 +1,5 @@
-module.exports = {
+/** @type {import("stylelint").Config} */
+export default {
   root: true,
   // 继承某些已有的规则
   extends: [
@@ -180,4 +181,4 @@ module.exports = {
     ]
   },
   ignoreFiles: ['**/*.js', '**/*.jsx', '**/*.tsx', '**/*.ts']
-}
+};

@@ -1,5 +1,6 @@
-import service from '@/services/service'
-import type { HomeParams, HomeResponse } from './types'
+import service from '@/services/service';
+
+import type { HomeParams, HomeResponse } from './types';
 
 // xxx
 export function getHome(params: HomeParams): Promise<IResponse<HomeResponse>> {
@@ -9,5 +10,5 @@ export function getHome(params: HomeParams): Promise<IResponse<HomeResponse>> {
     params
   })
     .then((res) => res.data)
-    .catch((e) => e)
+    .catch((e) => e);
 }

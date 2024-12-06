@@ -10,6 +10,7 @@
 
 <script setup lang="ts">
 import { useDesign } from '@/hooks';
+
 const { prefixCls, createClass } = useDesign('pg-home');
 </script>
 
