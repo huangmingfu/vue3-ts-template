@@ -7,3 +7,6 @@ dist-ssr
 *-lock.*
 pnpm-debug
 stats.html
+
+.stylelintcache
+.eslintcache

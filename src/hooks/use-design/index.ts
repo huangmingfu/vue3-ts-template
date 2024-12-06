@@ -1,9 +1,7 @@
-import variables from '@/styles/scss/variables.module.scss';
-
 export function useDesign(scope: string) {
-  const scssVariables = variables;
+  const namespace = 'v';
   // 'pg'页面、'cmp'组件、'pub'公共组件
-  const prefixCls = `${scssVariables.namespace}-${scope}`;
+  const prefixCls = `${namespace}-${scope}`;
 
   return {
     prefixCls,
