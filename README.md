@@ -108,6 +108,12 @@ pnpm clean          # 清理构建文件和依赖
 └── vite.config.ts    # Vite 配置
 ```
 
+## 相关
+
+> 部分代码和结构参考了`vue-element-plus-admin`
+
+- [vue-element-plus-admin](https://github.com/kailong321200875/vue-element-plus-admin)
+
 ## License
 
 [MIT](./LICENSE)
