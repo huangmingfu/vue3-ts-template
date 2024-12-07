@@ -1,26 +1,9 @@
 {
-  // 开启自动修复
+  "prettier.enable": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll": "never",
-    "source.fixAll.eslint": "explicit",
-    "source.fixAll.stylelint": "explicit"
+    "source.fixAll.eslint": "explicit"
   },
-  // 保存的时候自动格式化
-  "editor.formatOnSave": true,
-  // 默认格式化工具选择prettier
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  // 配置该项，新建文件时默认就是space：2
-  "editor.tabSize": 2,
-  // stylelint校验的文件格式
-  "stylelint.validate": ["css", "scss", "vue", "html"],
-  // md文件不自动格式化
-  "[markdown]": {
-    "editor.wordWrap": "on",
-    "editor.quickSuggestions": {
-      "comments": "off",
-      "strings": "off",
-      "other": "off"
-    },
-    "editor.formatOnSave": false
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   }
 }
