@@ -24,7 +24,7 @@ export default {
     '^vue(.*)$', // vue 相关放在最前面
     '<THIRD_PARTY_MODULES>', // 其他第三方模块
     '^@/components/(.*)$', // 全局组件
-    '^@/(hooks|store)(.*)$', // 自定义 hooks 和 store 统一分组
+    // '^@/(hooks|store)(.*)$', // 自定义 hooks 和 store 统一分组
     '^@/(.*)$', // 其他 @/ 开头的模块
     '^[./]' // 当前文件夹和父文件夹的相对导入
   ]

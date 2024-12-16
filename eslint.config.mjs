@@ -9,7 +9,7 @@ import pluginVue from 'eslint-plugin-vue';
 import tseslint from 'typescript-eslint';
 
 export default tseslint.config({
-  ignores: ['node_modules', 'dist', '/dist*', '/build/', '/*.js'],
+  ignores: ['node_modules', 'dist', 'dist*', 'build/*', '*.js'],
   files: ['src/**/*.ts', 'src/**/*.tsx', 'src/**/*.vue'],
   // tseslint.config添加了extends扁平函数，直接用。否则是eslint9.0版本是没有extends的
   extends: [
