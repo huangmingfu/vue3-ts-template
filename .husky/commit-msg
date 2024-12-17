@@ -2,5 +2,11 @@
 . "$(dirname "$0")/_/husky.sh"
 
 echo "===== husky commit-msg-lint start ====="
+start_time=$(date +%s)
+
 pnpm commitlint --edit "$1"
+
+end_time=$(date +%s)
+elapsed_time=$((end_time - start_time))
 echo "===== husky commit-msg-lint end ====="
+echo "（Total time taken: $elapsed_time seconds）" # 共耗时x秒

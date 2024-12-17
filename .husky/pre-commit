@@ -2,5 +2,11 @@
 . "$(dirname "$0")/_/husky.sh"
 
 echo "===== husky lint-staged start ====="
+start_time=$(date +%s)
+
 pnpm exec lint-staged
+
+end_time=$(date +%s)
+elapsed_time=$((end_time - start_time))
 echo "===== husky lint-staged end ====="
+echo "（Total time taken: $elapsed_time seconds）" # 共耗时x秒
