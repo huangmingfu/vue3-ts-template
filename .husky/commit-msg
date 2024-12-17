@@ -1,4 +1,6 @@
 #!/usr/bin/env sh
 . "$(dirname "$0")/_/husky.sh"
 
+echo "===== husky commit-msg-lint start ====="
 pnpm commitlint --edit "$1"
+echo "===== husky commit-msg-lint end ====="
