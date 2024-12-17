@@ -4,6 +4,7 @@ import path from 'node:path';
 import process from 'node:process';
 import { fileURLToPath } from 'node:url';
 import { defineConfig, loadEnv } from 'vite';
+import checker from 'vite-plugin-checker';
 
 import { setupHtmlPlugin } from './build/plugins/html';
 import { getBuildTime } from './build/utils/time';
@@ -18,7 +19,18 @@ export default defineConfig(({ mode }) => {
     define: {
       BUILD_TIME: JSON.stringify(buildTime)
     },
-    plugins: [vue(), vueJsx(), setupHtmlPlugin(buildTime)],
+    plugins: [
+      vue(),
+      vueJsx(),
+      setupHtmlPlugin(buildTime),
+      checker({
+        vueTsc: true,
+        typescript: true,
+        eslint: {
+          lintCommand: 'eslint "./src/**/*.{vue,ts,tsx}"'
+        }
+      })
+    ],
     resolve: {
       alias: {
         '@': path.resolve(fileURLToPath(new URL('.', import.meta.url)), 'src')
