@@ -27,6 +27,7 @@ export default defineConfig(({ mode }) => {
         vueTsc: true,
         typescript: true,
         eslint: {
+          useFlatConfig: true,
           lintCommand: 'eslint "./src/**/*.{vue,ts,tsx}"'
         }
       })
