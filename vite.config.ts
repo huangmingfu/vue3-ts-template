@@ -84,8 +84,9 @@ export default defineConfig(({ mode }) => {
         }
       }
     },
+    // 预构建（默认就会把node_modules的预构建，一般情况不用写，除非预构建自己写的公共组件代码）
     optimizeDeps: {
-      include: ['vue', 'vue-router', '@vueuse/core', 'axios', 'dayjs', 'pinia', 'mitt']
+      include: ['/node_modules/']
     }
   };
 });
