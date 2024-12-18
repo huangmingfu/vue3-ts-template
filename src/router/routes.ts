@@ -1,8 +1,6 @@
 import { RouteRecordRaw } from 'vue-router';
 
-//  meta含义
-//  title   ------------------> 标题
-//  keepAlive   ------------------> 是否缓存
+import { routes as modulesRoutes } from './utils';
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -10,19 +8,12 @@ const routes: Array<RouteRecordRaw> = [
     path: '/',
     redirect: '/home'
   },
-  {
-    path: '/home',
-    name: 'Home',
-    meta: {
-      title: '首页',
-      keepAlive: true //是否缓存路由
-    },
-    component: () => import('@/views/home/index.vue')
-  },
+  ...modulesRoutes,
   {
     name: 'NoFind',
     path: '/:pathMatch(.*)*',
     component: () => import('@/components/Error/404.vue')
   }
 ];
+
 export default routes;

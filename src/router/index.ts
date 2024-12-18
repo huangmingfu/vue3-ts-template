@@ -16,7 +16,29 @@ const router = createRouter({
 router.beforeEach((to, _from, next) => {
   //动态设置网页左上角的标题
   document.title = to.meta.title || import.meta.env.VITE_APP_TITLE;
+
   //...判断登录token逻辑
+  // const token = localStorage.getItem('token'); // useUserStore()
+  // if (!token || !whiteList.includes(to.path)) {
+  //   // 如果token不存在且不在白名单里面，就跳转到登录页面
+  //   next({
+  //     path: '/login',
+  //     query: {
+  //       redirect: encodeURIComponent(to.fullPath)
+  //     }
+  //   });
+  //   return;
+  // }
+
+  // // 已登录有token，或者在白名单里
+  // // 如果当前是登录页面就跳转到首页
+  // if (to.path === 'login') {
+  //   next({
+  //     path: '/'
+  //   });
+  //   return;
+  // }
+
   next();
 });
 
@@ -25,25 +47,3 @@ export const setupRouter = (app: App<Element>) => {
 };
 
 export default router;
-
-/**
-// 批量导入路由
-const modules = import.meta.glob('./modules/*.js', { eager: true })
-console.log(modules)
-const patchRouters = Object.keys(modules).map(key => modules[key].default).flat()
-console.log(patchRouters)
-
-
-const routes = [
-  {
-    path: '/',
-    redirect: '/home',
-  },
-  ...patchRouters,
-  {
-    path: '/:pathMatch(.*)*',
-    redirect: '/404',
-  },
-]
-
- */
