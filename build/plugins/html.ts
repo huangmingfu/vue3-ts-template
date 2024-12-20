@@ -7,7 +7,7 @@ export function setupHtmlPlugin(buildTime: string) {
     // html 转换 @see https://vitejs.cn/vite5-cn/guide/api-plugin.html#transformindexhtml
     transformIndexHtml(html) {
       return html.replace('<head>', `<head>\n    <meta name="buildTime" content="${buildTime}">`);
-    }
+    },
   };
 
   return plugin;

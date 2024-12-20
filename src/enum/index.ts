@@ -1,4 +1,4 @@
 enum ETest {
   a,
-  b
+  b,
 }

@@ -17,7 +17,7 @@ export default defineConfig(({ mode }) => {
   return {
     base: env.VITE_BASE_PATH,
     define: {
-      BUILD_TIME: JSON.stringify(buildTime)
+      BUILD_TIME: JSON.stringify(buildTime),
     },
     plugins: [
       vue(),
@@ -28,22 +28,22 @@ export default defineConfig(({ mode }) => {
         typescript: true,
         eslint: {
           useFlatConfig: true,
-          lintCommand: 'eslint "./src/**/*.{vue,ts,tsx}"'
-        }
-      })
+          lintCommand: 'eslint "./src/**/*.{vue,ts,tsx}"',
+        },
+      }),
     ],
     resolve: {
       alias: {
-        '@': path.resolve(fileURLToPath(new URL('.', import.meta.url)), 'src')
-      }
+        '@': path.resolve(fileURLToPath(new URL('.', import.meta.url)), 'src'),
+      },
     },
     css: {
       preprocessorOptions: {
         scss: {
           javascriptEnabled: true,
-          additionalData: `@use "@/styles/scss/index.scss" as *;` // 引入全局scss变量、方法等
-        }
-      }
+          additionalData: `@use "@/styles/scss/index.scss" as *;`, // 引入全局scss变量、方法等
+        },
+      },
     },
     // 反向代理解决跨域问题
     server: {
@@ -54,9 +54,9 @@ export default defineConfig(({ mode }) => {
         [env.VITE_APP_BASE_API]: {
           target: env.VITE_SERVER_URL,
           changeOrigin: true,
-          rewrite: (path: string) => path.replace(new RegExp('^' + env.VITE_APP_BASE_API), '')
-        }
-      }
+          rewrite: (path: string) => path.replace(new RegExp('^' + env.VITE_APP_BASE_API), ''),
+        },
+      },
     },
     //打包配置
     esbuild:
@@ -68,7 +68,7 @@ export default defineConfig(({ mode }) => {
             /** 打包时移除 debugger */
             drop: ['debugger'],
             /** 打包时移除所有注释 */
-            legalComments: 'none'
+            legalComments: 'none',
           },
     build: {
       target: 'es2015',
@@ -80,13 +80,13 @@ export default defineConfig(({ mode }) => {
             if (id.includes('node_modules')) {
               return 'vendor';
             }
-          }
-        }
-      }
+          },
+        },
+      },
     },
     // 预构建（默认就会把node_modules的预构建，一般情况不用写，除非预构建自己写的公共组件代码）
     optimizeDeps: {
-      include: ['/node_modules/']
-    }
+      include: ['/node_modules/'],
+    },
   };
 });

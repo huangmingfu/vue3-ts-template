@@ -4,7 +4,7 @@ import axios, { AxiosError, AxiosInstance, AxiosResponse, InternalAxiosRequestCo
 const axiosInstance: AxiosInstance = axios.create({
   baseURL: import.meta.env.VITE_APP_BASE_API, // 请求的默认前缀 只要是发出去请求就会 默认带上这个前缀
   timeout: 10000, // 请求超时时间：10s
-  headers: { 'Content-Type': 'application/json' } // 设置默认请求头
+  headers: { 'Content-Type': 'application/json' }, // 设置默认请求头
 });
 
 // 请求拦截器
@@ -19,7 +19,7 @@ axiosInstance.interceptors.request.use(
   },
   (err: AxiosError) => {
     return Promise.reject(err);
-  }
+  },
 );
 
 // 响应拦截器即异常处理
@@ -29,7 +29,7 @@ axiosInstance.interceptors.response.use(
   },
   (err: AxiosError) => {
     return Promise.resolve(err);
-  }
+  },
 );
 
 // 导出实例

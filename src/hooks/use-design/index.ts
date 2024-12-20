@@ -5,6 +5,6 @@ export function useDesign(scope: string) {
 
   return {
     prefixCls,
-    createClass: (content: string) => prefixCls + content
+    createClass: (content: string) => prefixCls + content,
   };
 }

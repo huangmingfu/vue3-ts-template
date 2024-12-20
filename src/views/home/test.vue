@@ -43,7 +43,7 @@ const initialText = '初始文本';
 const obj = {
   a: '1',
   b: '12',
-  c: '123'
+  c: '123',
 };
 
 // 方法
@@ -54,14 +54,14 @@ const { test2 = 'hhhhh' } = defineProps<{ test2: string; test3?: number }>();
 console.log(`test2 -->`, test2);
 
 defineExpose({
-  showMessage
+  showMessage,
 });
 // @ts-ignore
 const mod = defineModel('value', { type: String, default: 'hello' });
 // @ts-ignore
 const slots = defineSlots();
 defineOptions({
-  name: 'Test'
+  name: 'Test',
 });
 
 // const emits = defineEmits<{

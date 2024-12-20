@@ -1,14 +1,6 @@
 /// <reference types="vite/client" />
 
-declare module '*.scss';
-declare module '*.less';
-declare module '*.json';
-declare module '*.png';
-declare module '*.jpg';
-declare module '*.svg';
-declare module '*.css';
-declare module '*.js';
-
+// 路由懒加载：component: () => import('@/components/Error/404.vue')，不加下面这个的话会报找不到模块的错误
 declare module '*.vue' {
   import { DefineComponent } from 'vue';
   const component: DefineComponent<Record<string, unknown>, Record<string, unknown>, any>;

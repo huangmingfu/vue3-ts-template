@@ -15,10 +15,10 @@ export default tseslint.config({
   extends: [
     eslint.configs.recommended,
     ...tseslint.configs.recommended,
-    ...pluginVue.configs['flat/essential']
+    ...pluginVue.configs['flat/essential'],
   ],
   plugins: {
-    prettier
+    prettier,
   },
   languageOptions: {
     parser: vueParser, // 使用vue解析器，这个可以识别vue文件
@@ -27,9 +27,9 @@ export default tseslint.config({
       sourceType: 'module',
       ecmaVersion: 2020,
       ecmaFeatures: {
-        jsx: true
-      }
-    }
+        jsx: true,
+      },
+    },
   },
   rules: {
     'prettier/prettier': 'error',
@@ -69,14 +69,14 @@ export default tseslint.config({
         html: {
           void: 'always',
           normal: 'never',
-          component: 'always'
+          component: 'always',
         },
         svg: 'always',
-        math: 'always'
-      }
+        math: 'always',
+      },
     ],
     'vue/multi-word-component-names': 0,
     'vue/no-v-html': 0,
-    'vue/require-toggle-inside-transition': 0
-  }
+    'vue/require-toggle-inside-transition': 0,
+  },
 });

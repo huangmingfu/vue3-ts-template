@@ -13,7 +13,7 @@ const router = createRouter({
   // 路由配置
   routes,
   // 配置路由切换时的滚动行为：切换到新路由时，页面滚动到顶部
-  scrollBehavior: () => ({ left: 0, top: 0 })
+  scrollBehavior: () => ({ left: 0, top: 0 }),
 });
 
 // 全局路由守卫
@@ -31,7 +31,7 @@ router.beforeEach(async (to: RouteLocationNormalized, _from: RouteLocationNormal
       next({
         path: '/login',
         // 保存原本要访问的路径，用于登录后重定向
-        query: { redirect: encodeURIComponent(to.fullPath) }
+        query: { redirect: encodeURIComponent(to.fullPath) },
       });
       return;
     }
