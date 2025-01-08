@@ -4,7 +4,7 @@ import { RouteLocationNormalized, createRouter, createWebHistory } from 'vue-rou
 import routes from './routes';
 
 // 定义路由白名单，这些路径可以直接访问而无需登录验证
-const whiteList = ['/login', '/404', '/403'];
+const whiteList = ['/login', '/404', '/403', '/home'];
 
 // 创建路由实例
 const router = createRouter({
