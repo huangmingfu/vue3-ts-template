@@ -8,6 +8,7 @@ import checker from 'vite-plugin-checker';
 
 import { setupHtmlPlugin } from './build/plugins/html';
 import { getBuildTime } from './build/utils/time';
+import pkg from './package.json';
 
 export default defineConfig(({ mode }) => {
   // 获取`.env`环境配置文件
@@ -18,6 +19,7 @@ export default defineConfig(({ mode }) => {
     base: env.VITE_BASE_PATH,
     define: {
       BUILD_TIME: JSON.stringify(buildTime),
+      APP_VERSION: JSON.stringify(pkg.version),
     },
     plugins: [
       vue(),
