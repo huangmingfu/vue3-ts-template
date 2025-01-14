@@ -33,6 +33,11 @@ export default defineConfig(({ mode }) => {
           lintCommand: 'eslint "./src/**/*.{vue,ts,tsx}"',
         },
       }),
+      // // 自动 IDE 并将光标定位到 DOM 对应的源代码位置。see: https://inspector.fe-dev.cn/guide/start.html
+      // // vue的更推荐使用vue-devtools
+      // codeInspectorPlugin({
+      //   bundler: "vite"
+      // })
     ],
     resolve: {
       alias: {
@@ -61,18 +66,14 @@ export default defineConfig(({ mode }) => {
       },
     },
     //打包配置
-    esbuild:
-      env.VITE_NODE_ENV === 'development'
-        ? undefined
-        : {
-            /** 打包时移除 console.log */
-            pure: ['console.log'],
-            /** 打包时移除 debugger */
-            drop: ['debugger'],
-          },
+    esbuild: {
+      pure: env.VITE_NODE_ENV === 'development' ? ['console.log', 'debugger'] : [],
+    },
     build: {
       target: 'es2015',
       outDir: env.VITE_OUT_DIR || 'dist',
+      // 禁用 gzip 压缩大小报告，可略微减少打包时间
+      reportCompressedSize: false,
       rollupOptions: {
         output: {
           manualChunks(id) {
