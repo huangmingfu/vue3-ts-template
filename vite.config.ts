@@ -33,7 +33,7 @@ export default defineConfig(({ mode }) => {
           lintCommand: 'eslint "./src/**/*.{vue,ts,tsx}"',
         },
       }),
-      // // 自动 IDE 并将光标定位到 DOM 对应的源代码位置。see: https://inspector.fe-dev.cn/guide/start.html
+      // // 自动 IDE 并将光标定位到 DOM 对应的源代码位置。see: https://github.com/zh-lx/code-inspector
       // // vue的更推荐使用vue-devtools
       // codeInspectorPlugin({
       //   bundler: "vite"
