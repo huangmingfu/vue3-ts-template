@@ -51,8 +51,10 @@ router.beforeEach(async (to: RouteLocationNormalized, _from: RouteLocationNormal
   }
 });
 
-export const setupRouter = (app: App<Element>) => {
+export const setupRouter = async (app: App<Element>) => {
   app.use(router);
+  // 路由准备就绪后挂载APP实例
+  await router.isReady();
 };
 
 export default router;
