@@ -52,6 +52,8 @@ router.beforeEach(async (to: RouteLocationNormalized, _from: RouteLocationNormal
 });
 
 export const setupRouter = async (app: App<Element>) => {
+  // // 创建路由守卫
+  // createRouterGuards(router, whiteNameList);
   app.use(router);
   // 路由准备就绪后挂载APP实例
   await router.isReady();
