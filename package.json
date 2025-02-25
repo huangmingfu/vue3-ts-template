@@ -34,7 +34,7 @@
     "preview:dev": "pnpm vite preview --mode dev",
     "preview:test": "pnpm vite preview --mode test",
     "preview:pro": "pnpm vite preview --mode pro",
-    "ts:check": "vue-tsc --noEmit --skipLibCheck",
+    "typecheck": "vue-tsc --noEmit --skipLibCheck",
     "lint:eslint": "eslint --max-warnings 0  \"**/*.{ts,tsx,js,jsx,cjs,mjs,vue}\" --fix --cache",
     "lint:format": "prettier --write --cache \"**/*.{ts,tsx,js,jsx,cjs,mjs,html,vue,json,css,scss,less}\"",
     "lint:style": "stylelint \"**/*.{css,scss,less}\" --fix --cache",
