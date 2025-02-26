@@ -48,6 +48,7 @@
   },
   "dependencies": {
     "@vueuse/core": "^12.7.0",
+    "@vueuse/integrations": "^12.7.0",
     "axios": "^1.7.9",
     "dayjs": "^1.11.13",
     "mitt": "^3.0.1",
