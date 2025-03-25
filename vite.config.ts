@@ -10,6 +10,10 @@ import { setupHtmlPlugin } from './build/plugins/html';
 import { getBuildTime } from './build/utils/time';
 import pkg from './package.json';
 
+// import viteCompression from 'vite-plugin-compression'
+// import viteImagemin from 'vite-plugin-imagemin'
+// import { visualizer } from 'rollup-plugin-visualizer'
+
 export default defineConfig(({ mode }) => {
   // 获取`.env`环境配置文件
   const env = loadEnv(mode, process.cwd());
@@ -33,10 +37,61 @@ export default defineConfig(({ mode }) => {
           lintCommand: 'eslint "./src/**/*.{vue,ts,tsx}"',
         },
       }),
+      // 打包分析
+      // visualizer({
+      //   open: true,
+      //   gzipSize: true,
+      //   brotliSize: true,
+      //   filename: 'dist/stats.html' // 分析图生成的文件名及路径
+      // }),
+      // 压缩
+      // viteCompression({
+      //   verbose: true, // 是否在控制台输出压缩结果
+      //   disable: false, // 是否禁用
+      //   algorithm: 'gzip', // 压缩算法,可选 [ 'gzip' , 'brotliCompress' ,'deflate' , 'deflateRaw']
+      //   ext: '.gz', // 压缩后的文件名后缀
+      //   threshold: 10240, // 只有大小大于该值的资源会被处理 10240B = 10KB
+      //   deleteOriginFile: false // 压缩后是否删除原文件
+      // })
       // // 自动 IDE 并将光标定位到 DOM 对应的源代码位置。see: https://github.com/zh-lx/code-inspector
       // // vue的更推荐使用vue-devtools
       // codeInspectorPlugin({
       //   bundler: "vite"
+      // })
+      // 图片压缩
+      // viteImagemin({
+      //   verbose: true, // 是否在控制台输出压缩结果
+      //   // 图片压缩配置
+      //   // GIF 图片压缩配置
+      //   gifsicle: {
+      //     optimizationLevel: 4, // 优化级别 1-7，7为最高级别压缩
+      //     interlaced: false // 是否隔行扫描
+      //   },
+      //   // PNG 图片压缩配置
+      //   optipng: {
+      //     optimizationLevel: 4 // 优化级别 0-7，7为最高级别压缩
+      //   },
+      //   // JPEG 图片压缩配置
+      //   mozjpeg: {
+      //     quality: 60 // 压缩质量 0-100，值越小压缩率越高
+      //   },
+      //   // PNG 图片压缩配置(另一个压缩器)
+      //   pngquant: {
+      //     quality: [0.8, 0.9], // 压缩质量范围 0-1
+      //     speed: 4 // 压缩速度 1-11，值越大压缩速度越快，但质量可能会下降
+      //   },
+      //   // SVG 图片压缩配置
+      //   svgo: {
+      //     plugins: [
+      //       {
+      //         name: 'removeViewBox' // 移除 viewBox 属性
+      //       },
+      //       {
+      //         name: 'removeEmptyAttrs', // 移除空属性
+      //         active: false // 是否启用此插件
+      //       }
+      //     ]
+      //   }
       // })
     ],
     resolve: {
@@ -72,6 +127,12 @@ export default defineConfig(({ mode }) => {
     build: {
       target: 'es2015',
       outDir: env.VITE_OUT_DIR || 'dist',
+      terserOptions: {
+        compress: {
+          drop_console: true, // 生产环境去除 console
+          drop_debugger: true, // 生产环境去除 debugger
+        },
+      },
       // 禁用 gzip 压缩大小报告，可略微减少打包时间
       reportCompressedSize: false,
       rollupOptions: {
