@@ -11,7 +11,7 @@ const routes: Array<RouteRecordRaw> = [
   ...modulesRoutes,
   {
     name: 'NoFind',
-    path: '/:pathMatch(.*)*',
+    path: '/:pathMatch(.*)*', // 或者 /:catchAll(.*)
     component: () => import('@/components/Error/404.vue'),
   },
 ];
