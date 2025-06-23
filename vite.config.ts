@@ -102,7 +102,9 @@ export default defineConfig(({ mode }) => {
     css: {
       preprocessorOptions: {
         scss: {
-          javascriptEnabled: true,
+          // 当设置为 true 时，允许在 .scss 文件中使用 JavaScript 表达式（如 2 + 2 或变量计算）
+          // 例如：$width: 16px + 8px; 这类计算会被直接解析，height: 12px+200px;
+          javascriptEnabled: true,// 启用 Sass 中的 JavaScript 表达式支持
           additionalData: `@use "@/styles/scss/index.scss" as *;`, // 引入全局scss变量、方法等
         },
       },
