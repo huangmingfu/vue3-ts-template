@@ -129,6 +129,7 @@ export default defineConfig(({ mode }) => {
     build: {
       target: 'es2015',
       outDir: env.VITE_OUT_DIR || 'dist',
+      // minify: false, // 是否禁用最小化混淆，可查看产物排查问题或作优化等
       terserOptions: {
         compress: {
           drop_console: true, // 生产环境去除 console
