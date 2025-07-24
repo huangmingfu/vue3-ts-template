@@ -3,7 +3,9 @@
   "editor.formatOnSave": true,
   "prettier.enable": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit"
+    "source.fixAll": "never",
+    "source.fixAll.eslint": "explicit",
+    "source.fixAll.stylelint": "explicit"
   },
   "[vue]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -31,5 +33,10 @@
   },
   "[markdown]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "stylelint.enable": true,
+  "stylelint.packageManager": "pnpm",
+  "stylelint.validate": ["css", "less", "postcss", "scss", "vue"],
+  "stylelint.customSyntax": "postcss-html",
+  "stylelint.snippet": ["css", "less", "postcss", "scss", "vue"]
 }
