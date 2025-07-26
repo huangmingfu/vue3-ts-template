@@ -104,7 +104,7 @@ export default defineConfig(({ mode }) => {
         scss: {
           // 当设置为 true 时，允许在 .scss 文件中使用 JavaScript 表达式（如 2 + 2 或变量计算）
           // 例如：$width: 16px + 8px; 这类计算会被直接解析，height: 12px+200px;
-          javascriptEnabled: true,// 启用 Sass 中的 JavaScript 表达式支持
+          javascriptEnabled: true, // 启用 Sass 中的 JavaScript 表达式支持
           additionalData: `@use "@/styles/scss/index.scss" as *;`, // 引入全局scss变量、方法等
         },
       },
@@ -122,20 +122,26 @@ export default defineConfig(({ mode }) => {
         },
       },
     },
-    //打包配置
-    esbuild: {
-      pure: env.VITE_NODE_ENV === 'development' ? ['console.log', 'debugger'] : [],
-    },
     build: {
       target: 'es2015',
       outDir: env.VITE_OUT_DIR || 'dist',
-      // minify: false, // 是否禁用最小化混淆，可查看产物排查问题或作优化等
-      terserOptions: {
-        compress: {
-          drop_console: true, // 生产环境去除 console
-          drop_debugger: true, // 生产环境去除 debugger
-        },
-      },
+      cssMinify: true, // 启用 css 压缩
+      // minify: false, // 是否禁用最小化混淆，可查看产物排查问题或作优化等，默认是esbuild
+      // minify: 'terser', // 使用 terser 压缩
+      // terserOptions: {
+      //   compress: {
+      //     drop_console: true, // 生产环境去除 console
+      //     drop_debugger: true, // 生产环境去除 debugger
+      //     pure_funcs: ['console.log'], // 额外指定要移除的存函数
+      //     process:2// 执行两轮压缩优化
+      //   },
+      //   mangle: {
+      //     toplevel: true,// 开启顶级作用域变量名混淆
+      //   },
+      //   format: {
+      //     comments: false, // 移除所有代码注释
+      //   },
+      // },
       // 禁用 gzip 压缩大小报告，可略微减少打包时间
       reportCompressedSize: false,
       rollupOptions: {
