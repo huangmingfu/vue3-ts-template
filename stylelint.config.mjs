@@ -28,6 +28,12 @@ export default {
         ignorePseudoClasses: ['global', 'v-deep', 'deep', 'export'],
       },
     ],
+    'scss/function-no-unknown': [
+      true,
+      {
+        ignoreFunctions: ['v-bind'],
+      },
+    ],
   },
   ignoreFiles: ['**/*.js', '**/*.jsx', '**/*.tsx', '**/*.ts'],
 };
