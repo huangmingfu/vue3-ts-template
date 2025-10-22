@@ -5,7 +5,7 @@ import process from 'node:process';
 import { fileURLToPath } from 'node:url';
 import { defineConfig, loadEnv } from 'vite';
 import checker from 'vite-plugin-checker';
-
+import vueDevTools from 'vite-plugin-vue-devtools'
 import { setupHtmlPlugin } from './build/plugins/html';
 import { getBuildTime } from './build/utils/time';
 import pkg from './package.json';
@@ -37,6 +37,7 @@ export default defineConfig(({ mode }) => {
           lintCommand: 'eslint "./src/**/*.{vue,ts,tsx}"',
         },
       }),
+       vueDevTools(),
       // 打包分析
       // visualizer({
       //   open: true,
